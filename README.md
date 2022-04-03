@@ -1,2 +1,5 @@
-# Arhitectura-Sistemelor-de-Calcul
-Homework and labs
+# ASC
+
+## `assignments/`
+
+Contains skeletons and tests for ASC assignments.
