@@ -45,22 +45,22 @@ class Consumer(Thread):
         Thread.__init__(self, **kwargs)
 
     def run(self):
-        id = self.marketplace.new_cart()
+        id_cart = self.marketplace.new_cart()
 
         for orders in self.carts:
             for order in orders:
                 if order["type"] == "add":
                     i = 0
                     while i < order["quantity"]:
-                        check = self.marketplace.add_to_cart(id, order["product"])
-                        if check == True:
+                        check = self.marketplace.add_to_cart(id_cart, order["product"])
+                        if check is True:
                             i += 1
                         else:
                             time.sleep(self.retry_wait_time)
 
                 elif order["type"] == "remove":
                     for i in range(order["quantity"]):
-                        self.marketplace.remove_from_cart(id, order["product"])
+                        self.marketplace.remove_from_cart(id_cart, order["product"])
 
-        for product in self.marketplace.place_order(id):
+        for product in self.marketplace.place_order(id_cart):
             print(self.getName(), "bought", product)
