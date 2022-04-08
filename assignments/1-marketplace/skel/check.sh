@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TIMEOUT_VAL=360
-PYTHON_CMD=python3
+PYTHON_CMD=python
 SRC=tema
 
 timeout $TIMEOUT_VAL ./run_tests.sh &> result
