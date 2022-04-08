@@ -6,6 +6,60 @@ Assignment 1
 March 2021
 """
 from threading import Lock
+import unittest
+import product as product_type
+
+class TestMarketplace(unittest.TestCase):
+
+    def setUp(self):
+        self.marketplace = Marketplace(5)
+
+    def test_register_producer(self):
+        self.assertEqual(len(self.marketplace.producers), self.marketplace.register_producer())
+
+    def test_publish(self):
+        self.producer_id = self.marketplace.register_producer()
+        self.product = product_type.Tea("Matcha", 15, "Herbal")
+        check_publish = self.marketplace.publish(self.producer_id, self.product)
+        self.assertEqual(check_publish, True)
+
+    def test_new_cart(self):
+        self.assertEqual(len(self.marketplace.consumers), self.marketplace.new_cart())
+
+    def test_add_to_cart(self):
+        self.cart_id = self.marketplace.new_cart()
+        self.producer_id = self.marketplace.register_producer()
+        self.product = product_type.Coffee("Americano", 20, "5", "MEDIUM")
+
+        self.marketplace.publish(self.producer_id, self.product)
+
+        check_add_to_cart = self.marketplace.add_to_cart(self.cart_id, self.product)
+        self.assertEqual(check_add_to_cart, True)
+
+    def test_remove_from_cart(self):
+        self.cart_id = self.marketplace.new_cart()
+        self.producer_id = self.marketplace.register_producer()
+        self.product = product_type.Coffee("Espresso", 18, "3", "LOW")
+
+        self.marketplace.publish(self.producer_id, self.product)
+        self.marketplace.add_to_cart(self.cart_id, self.product)
+
+        self.marketplace.remove_from_cart(self.cart_id, self.product)
+        self.assertEqual(len(self.marketplace.consumers[self.cart_id]), 0)
+
+    def test_place_order(self):
+        self.products_list = []
+        self.products_list.append(product_type.Tea("Green Tea", 14, "Herbal"))
+        self.products_list.append(product_type.Coffee("Espresso", 28, "4", "HIGH"))
+        self.products_list.append(product_type.Tea("Black Tea", 18, "Herbal"))
+
+        self.cart_id = self.marketplace.new_cart()
+
+        for product_unit in self.products_list:
+            self.marketplace.consumers[self.cart_id].append(product_unit)
+
+        check_place_order = self.marketplace.place_order(self.cart_id)
+        self.assertEqual(self.products_list, check_place_order)
 
 
 class Marketplace:
