@@ -7,6 +7,7 @@ March 2021
 """
 from threading import Lock
 
+
 class Marketplace:
     """
     Class that represents the Marketplace. It's the central part of the implementation.
@@ -31,15 +32,14 @@ class Marketplace:
         self.new_cart_lock = Lock()
         self.add_to_cart_lock = Lock()
 
-
     def register_producer(self):
         """
         Returns an id for the producer that calls this.
         """
         with self.register_producer_lock:
-            id = len(self.producers)
+            id_producer = len(self.producers)
             self.producers.append([])
-            return id
+            return id_producer
 
     def publish(self, producer_id, product):
         """
@@ -65,9 +65,9 @@ class Marketplace:
         :returns an int representing the cart_id
         """
         with self.new_cart_lock:
-            id = len(self.consumers)
+            id_cart = len(self.consumers)
             self.consumers.append([])
-            return id
+            return id_cart
 
     def add_to_cart(self, cart_id, product):
         """
@@ -85,7 +85,7 @@ class Marketplace:
             if product in producer:
                 with self.add_to_cart_lock:
                     self.consumers[cart_id].append(product)
-                producer.remove(product)
+                    producer.remove(product)
                 return True
         return False
 

@@ -7,8 +7,8 @@ March 2021
 """
 
 from threading import Thread
-from tema.marketplace import Marketplace
 import time
+from tema.marketplace import Marketplace
 
 
 class Producer(Thread):
@@ -43,16 +43,14 @@ class Producer(Thread):
         Thread.__init__(self, **kwargs)
 
     def run(self):
-        id = self.marketplace.register_producer()
+        id_producer = self.marketplace.register_producer()
         while True:
             for product in self.products:
                 i = 0
                 while i < product[1]:
-                    check = self.marketplace.publish(id, product[0])
-                    if check == True:
+                    check = self.marketplace.publish(id_producer, product[0])
+                    if check is True:
                         i += 1
                         time.sleep(product[2])
                     else:
                         time.sleep(self.republish_wait_time)
-
-

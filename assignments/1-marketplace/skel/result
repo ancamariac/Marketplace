@@ -26,40 +26,13 @@ Starting test 9
 Finished test 9
 Test 9:		PASSED
 Starting test 10
-Finished test 10
-Test 10:		PASSED
- [main] diff 510 cygwin_exception::open_stackdumpfile: Dumping stack trace to diff.exe.stackdump
-Test 8:		PASSED
-Starting test 9
-Finished test 9
-      0 [main] diff 522 D:\Apps\Git\usr\bin\diff.exe: *** fatal error - couldn't initialize fd 0 for /dev/pty0
-   1247 [main] diff 522 cygwin_exception::open_stackdumpfile: Dumping stack trace to diff.exe.stackdump
-Test 9:		PASSED
-Starting test 10
 TIMEOUT. Test 10 exceeded maximum allowed time of 60
 Finished test 10
-      0 [main] diff 558 D:\Apps\Git\usr\bin\diff.exe: *** fatal error - couldn't initialize fd 0 for /dev/pty0
-   5236 [main] diff 558 cygwin_exception::open_stackdumpfile: Dumping stack trace to diff.exe.stackdump
-Test 10:		PASSED
+Test 10:		FAILED
 
 Run pylint
 
-************* Module consumer
-tema\consumer.py:48:8: W0622: Redefining built-in 'id' (redefined-builtin)
-tema\consumer.py:48:8: C0103: Variable name "id" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
-tema\consumer.py:56:27: C0121: Comparison 'check == True' should be 'check is True' if checking for the singleton value True, or 'check' if testing for truthiness (singleton-comparison)
-************* Module marketplace
-tema\marketplace.py:40:12: W0622: Redefining built-in 'id' (redefined-builtin)
-tema\marketplace.py:40:12: C0103: Variable name "id" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
-tema\marketplace.py:68:12: W0622: Redefining built-in 'id' (redefined-builtin)
-tema\marketplace.py:68:12: C0103: Variable name "id" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
-************* Module producer
-tema\producer.py:58:0: C0305: Trailing newlines (trailing-newlines)
-tema\producer.py:46:8: W0622: Redefining built-in 'id' (redefined-builtin)
-tema\producer.py:46:8: C0103: Variable name "id" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
-tema\producer.py:52:23: C0121: Comparison 'check == True' should be 'check is True' if checking for the singleton value True, or 'check' if testing for truthiness (singleton-comparison)
-tema\producer.py:11:0: C0411: standard import "import time" should be placed before "from tema.marketplace import Marketplace" (wrong-import-order)
 
-------------------------------------------------------------------
-Your code has been rated at 8.80/10 (previous run: 7.63/10, +1.17)
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 8.80/10, +1.20)
 
