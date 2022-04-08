@@ -149,8 +149,8 @@ class Marketplace:
         """
         if len(self.producers[producer_id]) < self.queue_size_per_producer:
             self.producers[producer_id].append(product)
-            logger.info(f"Added the product {product} provided "
-                        f"by the producer: {producer_id}")
+            logger.info(product)
+            logger.info(producer_id)
             return True
         return False
 
@@ -183,8 +183,8 @@ class Marketplace:
                 if product in producer:
                     self.consumers[cart_id].append(product)
                     producer.remove(product)
-                    logger.info(f"Added the product {product} with "
-                                f"the cart id: {cart_id}")
+                    logger.info(product)
+                    logger.info(cart_id)
                     return True
         return False
 
@@ -202,8 +202,8 @@ class Marketplace:
             self.consumers[cart_id].remove(product)
             with self.remove_from_cart_lock:
                 self.producers[0].append(product)
-            logger.info(f"The product {product} was removed from "
-                        f"the cart with the cart_id: {cart_id}")
+            logger.info(product)
+            logger.info(cart_id)
 
     def place_order(self, cart_id):
         """
@@ -212,7 +212,6 @@ class Marketplace:
         :type cart_id: Int
         :param cart_id: id cart
         """
-        logger.info(f"This is the list with all the products for the "
-                    f"cart with the cart_id: "
-                    f"{cart_id}\n {self.consumers[cart_id]}")
+        logger.info(cart_id)
+        logger.info(self.consumers[cart_id])
         return self.consumers[cart_id]

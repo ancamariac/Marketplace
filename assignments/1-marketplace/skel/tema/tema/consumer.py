@@ -46,7 +46,6 @@ class Consumer(Thread):
 
     def run(self):
         id_cart = self.marketplace.new_cart()
-
         for orders in self.carts:
             for order in orders:
                 if order["type"] == "add":
@@ -61,6 +60,6 @@ class Consumer(Thread):
                 elif order["type"] == "remove":
                     for i in range(order["quantity"]):
                         self.marketplace.remove_from_cart(id_cart, order["product"])
-
-        for product in self.marketplace.place_order(id_cart):
+        cart = self.marketplace.place_order(id_cart)
+        for product in cart:
             print(self.getName(), "bought", product)

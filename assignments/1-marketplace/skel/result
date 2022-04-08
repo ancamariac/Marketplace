@@ -31,22 +31,8 @@ Test 10:		PASSED
 
 Run pylint
 
-************* Module marketplace
-tema\marketplace.py:180:39: C0303: Trailing whitespace (trailing-whitespace)
-tema\marketplace.py:22:0: C0115: Missing class docstring (missing-class-docstring)
-tema\marketplace.py:132:8: W1201: Use lazy % formatting in logging functions (logging-not-lazy)
-tema\marketplace.py:132:20: C0209: Formatting a regular string which could be a f-string (consider-using-f-string)
-tema\marketplace.py:149:24: W1202: Use lazy % formatting in logging functions (logging-format-interpolation)
-tema\marketplace.py:149:24: C0209: Formatting a regular string which could be a f-string (consider-using-f-string)
-tema\marketplace.py:163:8: W1201: Use lazy % formatting in logging functions (logging-not-lazy)
-tema\marketplace.py:163:20: C0209: Formatting a regular string which could be a f-string (consider-using-f-string)
-tema\marketplace.py:183:32: W1202: Use lazy % formatting in logging functions (logging-format-interpolation)
-tema\marketplace.py:183:32: C0209: Formatting a regular string which could be a f-string (consider-using-f-string)
-tema\marketplace.py:202:24: W1202: Use lazy % formatting in logging functions (logging-format-interpolation)
-tema\marketplace.py:202:24: C0209: Formatting a regular string which could be a f-string (consider-using-f-string)
-tema\marketplace.py:212:20: W1202: Use lazy % formatting in logging functions (logging-format-interpolation)
-tema\marketplace.py:212:20: C0209: Formatting a regular string which could be a f-string (consider-using-f-string)
+PYLINTHOME is now 'C:\Users\Media_PC\AppData\Local\pylint\pylint\Cache' but obsolescent 'C:\Users\Media_PC\.pylint.d' is found; you can safely remove the latter
 
-------------------------------------------------------------------
-Your code has been rated at 9.11/10 (previous run: 9.17/10, -0.06)
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 9.74/10, +0.26)
 
